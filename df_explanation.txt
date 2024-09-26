@@ -1,0 +1,23 @@
+Dataframe con los datos del .csv de mismo nombre:
+    - df_final_demo 
+    - df_web_data1
+    - df_web_data2
+    - df_final_exp
+
+df_web_data_concat -> datos de df_web_data1 y df_web_data2 concatenados
+
+df_all -> df con todos los datos de los csv mergeados
+
+df_all_no_duplicates -> df sin id de cliente duplicados para analizar datos de 
+                        clientes como edad, o tiempo de permanencia
+
+df_id_max_compras -> df_all agrupado por "client_id", "visit_id", "variation" mostrando de 
+                    la columna date_time aquel valor máximo para cada group
+
+df_ambos_portales -> df_all pero solo aquellas filas en los que la fecha de visita 
+                    a la web sea la más reciente dentro de un mismo valor de "client_id", 
+                    "visit_id" y "variation"   -> df_ambos_portales = df_all.loc[df_id_max_compras]
+
+df_control -> df de arriba pero solo para grupo de df_control
+
+df_test -> análogo pero para test
