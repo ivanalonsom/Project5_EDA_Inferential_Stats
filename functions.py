@@ -41,15 +41,15 @@ def outlier_slayer(data):
 
 
 # Función para eliminar outliers usando Z-score
-def outlier_slayer_zscore(data, threshold=3):
-    z_scores = np.abs(stats.zscore(data.select_dtypes(include=[np.number])))
-    data = data[(z_scores < threshold).all(axis=1)]
-    return data
+# def outlier_slayer_zscore(data, threshold=3):
+#     z_scores = np.abs(stats.zscore(data.select_dtypes(include=[np.number])))
+#     data = data[(z_scores < threshold).all(axis=1)]
+#     return data
 
 
 def get_final_demo_df():
     import pandas as pd
-    df_final_demo = pd.read_csv("df_final_demo.csv")
+    df_final_demo = pd.read_csv("original_data/df_final_demo.csv")
 
     df_final_demo.dropna(inplace=True)
 
@@ -62,8 +62,8 @@ def get_final_demo_df():
 def get_web_data_df():
     import pandas as pd
 
-    df_web_data1 = pd.read_csv("df_final_web_data_pt_1.csv")
-    df_web_data2 = pd.read_csv("df_final_web_data_pt_2.csv")
+    df_web_data1 = pd.read_csv("original_data/df_final_web_data_pt_1.csv")
+    df_web_data2 = pd.read_csv("original_data/df_final_web_data_pt_2.csv")
 
     df_web_data_concat = pd.concat([df_web_data1, df_web_data2], axis=0, join='inner')
     # Convert type object into datetime 
@@ -82,7 +82,7 @@ def get_web_data_df():
 def get_final_exp_df():
     import pandas as pd
 
-    df_final_exp = pd.read_csv("df_final_experiment_clients.csv")
+    df_final_exp = pd.read_csv("original_data/df_final_experiment_clients.csv")
     df_final_exp.rename(columns={"Variation" : "variation"}, inplace=True)
     df_final_exp = drop_na_df(df_final_exp, "variation")
     map_values2 = {'Control': 0, 'Test': 1}
@@ -180,3 +180,10 @@ def get_last_step(df, variation):
     El % de gente que se quedó en el PASO 3 en la web de {'CONTROL' if variation == 0 else 'TEST'} es de {perc_step3}
     El % de gente que CONFIRMÓ la compra en la web de {'CONTROL' if variation == 0 else 'TEST'} es de {perc_confirms}
       """)
+    
+
+def get_crosstab(df_col1, df_col2):
+    import pandas as pd
+
+    crosstab = pd.crosstab(df_col1, df_col2)
+    return crosstab
