@@ -55,7 +55,7 @@ def graph_bar_plot_control_v_test(df_control, df_test):
     
     # Mostrar el gráfico en Streamlit
     st.pyplot(plt)
-
+ 
 
 def intro():
     st.image("https://ceblog.s3.amazonaws.com/wp-content/uploads/2018/06/29173427/ab-testing-2.jpg", use_column_width=True)
