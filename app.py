@@ -35,10 +35,14 @@ def show_boxplot(df_col):
         st.write("La columna no se encuentra en el DataFrame.")
 
 
-def graph_bar_plot_control_v_test(df_control, df_test):
+def graph_bar_plot_control_v_test(df):
+    # Filtrar los grupos de control y test utilizando la columna 'variation'
+    df_control = df[df["variation"] == 0]
+    df_test = df[df["variation"] == 1]
+
     # Contar y normalizar las ocurrencias de process_step en cada DataFrame
-    control_counts = df_control['process_step'].value_counts(normalize=True).sort_index() * 100  
-    test_counts = df_test['process_step'].value_counts(normalize=True).sort_index() * 100  
+    control_counts = df_control['process_step'].value_counts(normalize=True).sort_index() * 100
+    test_counts = df_test['process_step'].value_counts(normalize=True).sort_index() * 100
 
     # Crear un DataFrame para facilitar la comparación
     counts_df = pd.DataFrame({'Control (%)': control_counts, 'Test (%)': test_counts})
@@ -52,9 +56,10 @@ def graph_bar_plot_control_v_test(df_control, df_test):
     plt.xticks(rotation=0)
     plt.legend(title='Grupo')
     plt.grid(axis='y')
-    
+
     # Mostrar el gráfico en Streamlit
     st.pyplot(plt)
+
  
 
 def intro():
@@ -118,10 +123,10 @@ def intro():
 def datasets():
     # Diccionario de DataFrames
     dataframes = {
-        "Total": pd.read_csv('data/df_all.csv'),
-        "No Duplicates": pd.read_csv('data/df_all_no_duplicates.csv'),
-        "Test": pd.read_csv('data/df_test_propio.csv'),
-        "Control": pd.read_csv('data/df_control_propio.csv'),
+        "Total": pd.read_csv('data/df_powerbi.csv'),
+        # "Cleaned": pd.read_csv('data/df_all_cleaned.csv'),
+        # "PowerBi": pd.read_csv('data/df_powerbi.csv'),
+        # "Control": pd.read_csv('data/df_control_propio.csv'),
     }
 
     # Selector de DataFrame
@@ -155,21 +160,69 @@ def datasets():
 
 
 def statistics():
-    df_all = pd.read_csv('data/df_all.csv')
-    df_control = pd.read_csv('data/df_control_propio.csv')
-    df_test = pd.read_csv('data/df_test_propio.csv')
+    df_all = pd.read_csv('data/df_powerbi.csv')
+    # df_control = pd.read_csv('data/df_control_propio.csv')
+    # df_test = pd.read_csv('data/df_test_propio.csv')
 
-    df_num = df_all.select_dtypes(include=['int64', 'float64'])
-    df_num.drop(['client_id', 'num_accts', 'lastOp', 'variation', 'process_step', 'num_compras'], axis=1, inplace=True)
-    df_cat = df_all.select_dtypes(include=['object'])
+        # Seleccionar solo columnas numéricas y excluir algunas que no interesan
+    df_num = df_all.select_dtypes(include=['int64', 'float64']).copy()
+    df_num.drop(['client_id', 'num_accts', 'process_step', 'variation'], axis=1, inplace=True)
 
+    # Seleccionar solo columnas categóricas
+    df_cat = df_all.select_dtypes(include=['object']).copy()
+
+    # Mostrar estadísticas de las variables numéricas
     st.write("Numerical variables statistics:")
-    st.write(df_num.describe() )
+    st.write(df_num.describe())
 
+    # Mostrar estadísticas de las variables categóricas
     st.write("Categorical variables statistics:")
-    st.write(df_cat.describe() )
+    st.write(df_cat.describe())
 
-    graph_bar_plot_control_v_test(df_control, df_test)
+    # Graficar las tasas de conversión entre control y test (por ejemplo)
+    # graph_bar_plot_control_v_test(df_all)
+    # Define el texto en formato Markdown
+    markdown_text = """
+    ## Resultados del Experimento
+
+    **Tasa de Completación del Grupo de Control:**  
+    12.04%
+
+    **Tasa de Completación del Grupo de Test:**  
+    13.81%
+
+    ---
+
+    ### Prueba Z (Test de Dos Proporciones)
+    - **Resultado del Test Z:**  
+    - **Estadístico Z:** -12.2592  
+    - **P-valor:** 1.50e-34  
+    - **Conclusión:** Podemos afirmar con un 95% de confianza que la diferencia en la tasa de completación es estadísticamente significativa (rechazamos H0).
+
+    ---
+
+    ### Umbral de Aumento Relativo
+    - **Aumento Observado:**  
+    El aumento observado es de 14.69%, cumpliendo con el umbral del 5%.
+
+    ---
+
+    ### Test de Chi-Cuadrado
+    - **Chi-cuadrado:** 150.1313  
+    - **P-valor:** 1.62e-34  
+    - **Conclusión:** La diferencia en la tasa de completación es estadísticamente significativa (rechazamos H0).
+
+    ---
+
+    ### Interpretación General
+    Los resultados de las pruebas estadísticas (Test Z y Chi-Cuadrado) confirman que la nueva interfaz de usuario tiene un impacto positivo y significativo en la tasa de completación del proceso en comparación con la interfaz tradicional. Además, el aumento relativo en la tasa de completación del grupo de prueba supera el umbral del 5%, lo que indica que la nueva interfaz no solo mejora la experiencia del usuario, sino que también contribuye a una mayor efectividad en la completación del proceso.
+
+    """
+
+    # Mostrar el texto en formato Markdown en Streamlit
+    st.markdown(markdown_text)
+
+# Asumimos que df_all se pasa al llamar a la función.
 
 
 # def database():
