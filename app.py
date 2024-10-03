@@ -149,36 +149,38 @@ def statistics():
     markdown_text = """
     ## Resultados del Experimento
 
-    **Tasa de Completación del Grupo de Control:**  
+    ## Experiment Results
+    **Completion Rate of the Control Group:**
     12.04%
 
-    **Tasa de Completación del Grupo de Test:**  
+    **Completion Rate of the Test Group:**
     13.81%
 
     ---
 
-    ### Prueba Z (Test de Dos Proporciones)
-    - **Resultado del Test Z:**  
-    - **Estadístico Z:** -12.2592  
-    - **P-valor:** 1.50e-34  
-    - **Conclusión:** Podemos afirmar con un 95% de confianza que la diferencia en la tasa de completación es estadísticamente significativa (rechazamos H0).
+    ### Z-Test (Two-Proportion Test)
+    **Z-Test Result:**
+    **Z-Statistic: -12.2592
+    **P-Value: 1.50e-34
+    **Conclusion:** We can state with 95% confidence that the difference in completion rates is statistically significant (we reject H0).
+
 
     ---
 
-    ### Umbral de Aumento Relativo
-    - **Aumento Observado:**  
-    El aumento observado es de 14.69%, cumpliendo con el umbral del 5%.
+    ### Relative Increase Threshold
+    - **Observed Increase:**
+    The observed increase is 14.69%, meeting the 5% threshold.
 
     ---
 
-    ### Test de Chi-Cuadrado
-    - **Chi-cuadrado:** 150.1313  
-    - **P-valor:** 1.62e-34  
-    - **Conclusión:** La diferencia en la tasa de completación es estadísticamente significativa (rechazamos H0).
+    ### Chi-Square Test
+    - **Chi-Square:** 150.1313
+    - **P-Value:** 1.62e-34
+    - **Conclusion:** The difference in completion rates is statistically significant (we reject H0)
 
     ---
 
-    ### Interpretación General
+    ### General Interpretation
     Los resultados de las pruebas estadísticas (Test Z y Chi-Cuadrado) confirman que la nueva interfaz de usuario tiene un impacto positivo y significativo en la tasa de completación del proceso en comparación con la interfaz tradicional. Además, el aumento relativo en la tasa de completación del grupo de prueba supera el umbral del 5%, lo que indica que la nueva interfaz no solo mejora la experiencia del usuario, sino que también contribuye a una mayor efectividad en la completación del proceso.
 
     """
