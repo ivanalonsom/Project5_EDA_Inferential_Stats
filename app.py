@@ -184,7 +184,7 @@ def statistics():
     The results of the statistical tests (Z-Test and Chi-Square) confirm that the new user interface has a positive and significant impact on 
     the completion rate of the process compared to the traditional interface. Additionally, the relative increase in the completion rate of 
     the test group exceeds the 5% threshold, indicating that the new interface not only improves user experience but also contributes to 
-    greater effectiveness in process completion. """
+    greater effectiveness in process completion.
     """
 
     # Mostrar el texto en formato Markdown en Streamlit
