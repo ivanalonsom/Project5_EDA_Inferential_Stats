@@ -181,8 +181,10 @@ def statistics():
     ---
 
     ### General Interpretation
-    Los resultados de las pruebas estadísticas (Test Z y Chi-Cuadrado) confirman que la nueva interfaz de usuario tiene un impacto positivo y significativo en la tasa de completación del proceso en comparación con la interfaz tradicional. Además, el aumento relativo en la tasa de completación del grupo de prueba supera el umbral del 5%, lo que indica que la nueva interfaz no solo mejora la experiencia del usuario, sino que también contribuye a una mayor efectividad en la completación del proceso.
-
+    The results of the statistical tests (Z-Test and Chi-Square) confirm that the new user interface has a positive and significant impact on 
+    the completion rate of the process compared to the traditional interface. Additionally, the relative increase in the completion rate of 
+    the test group exceeds the 5% threshold, indicating that the new interface not only improves user experience but also contributes to 
+    greater effectiveness in process completion. """
     """
 
     # Mostrar el texto en formato Markdown en Streamlit
