@@ -161,3 +161,36 @@ def chi_cuadrado_test_dos(df):
         print("La diferencia en la tasa de completación no es estadísticamente significativa (no podemos rechazar H0).")
 
 
+def analyze_numeric_variables(df):
+    import pandas as pd
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    """
+    Esta función analiza las variables numéricas en un DataFrame dado, imprime estadísticas descriptivas,
+    genera una matriz de correlación y visualiza dicha matriz con un mapa de calor.
+
+    Args:
+        df (pd.DataFrame): DataFrame que contiene las variables numéricas a analizar.
+
+    Returns:
+        None: La función imprime la estadística descriptiva y la matriz de correlación, 
+    y genera una visualización de mapa de calor.
+    """
+    
+    # 1. Análisis de variables numéricas
+    print("Estadísticas descriptivas de variables numéricas:")
+    print(df[['clnt_tenure_mnth', 'clnt_age', 'num_accts', 'bal', 'calls_6_mnth', 'logons_6_mnth']].describe())
+
+    # Matriz de correlación
+    corr_matrix = df[['clnt_tenure_mnth', 'clnt_age', 'bal', 'calls_6_mnth', 'logons_6_mnth']].corr()
+    print("\nMatriz de correlación:")
+    print(corr_matrix)
+
+    # Visualización de la matriz de correlación
+    plt.figure(figsize=(10, 8))
+    
+    # Ajustando el color, donde valores cercanos a 0 son más claros y cercanos a 1 o -1 más oscuros
+    sns.heatmap(corr_matrix, annot=True, cmap='Blues', vmin=-1, vmax=1, center=0, linewidths=0.5)
+    
+    plt.title('Matriz de Correlación de Variables Numéricas')
+    plt.show()
