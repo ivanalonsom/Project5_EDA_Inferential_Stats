@@ -6,7 +6,7 @@ import seaborn as sns
 
 def show_boxplot(df_col):
     # Cargar datos
-    df_outliers = pd.read_csv('data/df_all.csv')
+    df_outliers = pd.read_csv('data/df_all_outliers.csv')
 
     # Verificar si la columna 'clnt_tenure_mnth' existe
     if df_col.name in df_outliers.columns:
@@ -26,7 +26,7 @@ def show_boxplot(df_col):
         lower_bound = q1 - 1.5 * iqr
         upper_bound = q3 + 1.5 * iqr
         
-        outliers = df_outliers[(df_col < lower_bound) | (df_col > upper_bound)]
+        outliers = df_outliers[(df_outliers[df_col.name].notna()) & (df_col < lower_bound) | (df_col > upper_bound)]
         if not outliers.empty:
             st.write(f"Outliers encontrados: {outliers.count()[0]}")
         else:
@@ -111,7 +111,7 @@ def intro():
         df_outliers = pd.read_csv('data/df_all_outliers.csv')
         show_boxplot(df_outliers["clnt_tenure_mnth"])
 
-        df_no_outliers = pd.read_csv('data/df_all.csv')
+        df_no_outliers = pd.read_csv('data/df_all_cleaned.csv')
         show_boxplot(df_no_outliers["clnt_tenure_mnth"])
 
 
@@ -292,7 +292,7 @@ st.sidebar.markdown("<br>" * 20, unsafe_allow_html=True)
 st.sidebar.markdown("""  
                 ## This project has been developed by:
                 Iván Alonso - https://github.com/ivanalonsom  
-                Mario Jimenez - https://github.com/mjimcode
+                Danny Rodas - https://github.com/cohet3
                 """)
 
 if page == "Introduction":
