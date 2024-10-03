@@ -3,12 +3,15 @@
 <img src="https://fondosindexados.es/wp-content/uploads/2018/08/fondos-vanguard-logo.jpg" alt="Vanguard Logo">
 </p>
 
-
 ## Project Overview
 
 This project involves analyzing the results of a digital experiment conducted by **Vanguard**, a US-based investment management company. The goal is to determine whether a modernized, more intuitive user interface (UI) and timely contextual cues could improve the online process completion rates for Vanguard customers.
 
 The experiment involved an A/B test with a **control group** (using the traditional UI) and a **test group** (using the new UI). By analyzing the data from this experiment, the aim is to see if the changes in the UI led to an improved user experience and higher process completion rates.
+
+## Relevant Insights and conclusions 
+[Tableau story - Clients analysis.](https://public.tableau.com/views/ABTesting_Project_Clients_Analysis/Clientinsights?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+[PowerBI dashboard - Relevant Insights](https://youtu.be/risEWolXBHs)
 
 ## The Digital Challenge
 
@@ -24,19 +27,6 @@ The A/B test was conducted from **March 15, 2017** to **June 20, 2017**, compari
 - **Test Group**: Customers experienced the new, improved digital interface.
 
 Both groups went through the same sequence: a landing page, three subsequent steps, and a confirmation page indicating process completion.
-
-## Datasets
-
-The following datasets are used for this analysis:
-
-1. **Customer Profiles (`df_final_demo`)**: Contains demographic data like age, gender, and account details of Vanguard's customers.
-   
-2. **Digital Footprints (`df_final_web_data`)**: Provides detailed records of online customer interactions, split into two parts (`pt_1` and `pt_2`). These parts must be merged before in-depth analysis.
-
-3. **Experiment List (`df_final_experiment_clients`)**: Reveals which customers participated in the A/B experiment (either as part of the control or test group).
-
-    [\[Link to source\]](https://github.com/ivanalonsom/Project5_EDA_Inferential_Stats/tree/main/original_data)
-
 
 ## Objectives
 
@@ -69,6 +59,18 @@ The main objective of this project is to:
 - **Pandas** for handling datasets.
 - **Seaborn** and **Matplotlib** for data visualization.
 - **SciPy/Statsmodels** for statistical testing (A/B test analysis).
+
+## Datasets
+
+The following datasets are used for this analysis:
+
+1. **Customer Profiles (`df_final_demo`)**: Contains demographic data like age, gender, and account details of Vanguard's customers.
+   
+2. **Digital Footprints (`df_final_web_data`)**: Provides detailed records of online customer interactions, split into two parts (`pt_1` and `pt_2`). These parts must be merged before in-depth analysis.
+
+3. **Experiment List (`df_final_experiment_clients`)**: Reveals which customers participated in the A/B experiment (either as part of the control or test group).
+
+    [\[Link to source\]](https://github.com/ivanalonsom/Project5_EDA_Inferential_Stats/tree/main/original_data)
 
 ## How to Run the Project
 
