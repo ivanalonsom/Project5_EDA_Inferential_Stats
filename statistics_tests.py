@@ -187,10 +187,10 @@ def analyze_numeric_variables(df):
     print(corr_matrix)
 
     # Visualización de la matriz de correlación
-    plt.figure(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(10, 8))
     
     # Ajustando el color, donde valores cercanos a 0 son más claros y cercanos a 1 o -1 más oscuros
-    sns.heatmap(corr_matrix, annot=True, cmap='Blues', vmin=-1, vmax=1, center=0, linewidths=0.5)
+    sns.heatmap(corr_matrix, annot=True, cmap='Blues', vmin=-1, vmax=1, center=0, linewidths=0.5, ax=ax)
     
-    plt.title('Matriz de Correlación de Variables Numéricas')
-    plt.show()
+    plt.title('Numerical variables correlation matrix')
+    return fig

@@ -46,3 +46,5 @@ typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_ext
 tzdata==2024.2
 wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1704731205417/work
 zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1726248574750/work
+plotly_express
+xlrd==2.0.1
