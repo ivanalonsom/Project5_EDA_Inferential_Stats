@@ -1,4 +1,8 @@
 # Vanguard Customer Experience Analysis
+<p align="center">
+<img src="https://fondosindexados.es/wp-content/uploads/2018/08/fondos-vanguard-logo.jpg" alt="Vanguard Logo">
+</p>
+
 
 ## Project Overview
 
@@ -70,7 +74,7 @@ The main objective of this project is to:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/vanguard-cx-analysis.git
+   git clone https://github.com/ivanalonsom/Project5_EDA_Inferential_Stats.git
 2. Install the required Python libraries:
     ```bash
     pip install -r requirements.txt
