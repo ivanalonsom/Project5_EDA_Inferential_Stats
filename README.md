@@ -9,9 +9,18 @@ This project involves analyzing the results of a digital experiment conducted by
 
 The experiment involved an A/B test with a **control group** (using the traditional UI) and a **test group** (using the new UI). By analyzing the data from this experiment, the aim is to see if the changes in the UI led to an improved user experience and higher process completion rates.
 
-## Relevant Insights and conclusions 
-[Tableau story - Clients analysis.](https://public.tableau.com/views/ABTesting_Project_Clients_Analysis/Clientinsights?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-[PowerBI dashboard - Relevant Insights](https://youtu.be/risEWolXBHs)
+## Relevant Client Insights and conclusions 
+[Tableau story - Clients analysis.](https://public.tableau.com/views/ABTesting_Project_Clients_Analysis/Clientinsights?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)  
+## Relevant AB Testing Results 
+PowerBI dashboard - Relevant Insights  
+
+
+
+https://github.com/user-attachments/assets/98c2749f-6b8b-4c2e-8061-b89b30541c5f
+
+
+
+
 
 ## The Digital Challenge
 
